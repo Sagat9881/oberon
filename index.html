@@ -26,297 +26,105 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
-  /* ===== HEADER ===== */
   header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--header-h);
-    background: rgba(13,13,20,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    z-index: 100;
-    gap: 16px;
+    position: fixed; top: 0; left: 0; right: 0; height: var(--header-h);
+    background: rgba(13,13,20,0.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); display: flex; align-items: center;
+    padding: 0 24px; z-index: 100; gap: 16px;
   }
-  .logo {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    background: linear-gradient(135deg, var(--gold), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .logo { font-size: 22px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; background: linear-gradient(135deg, var(--gold), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .logo-sub { font-size: 11px; color: var(--text3); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
   .header-sep { flex: 1; }
-  .header-badge {
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    color: var(--text3);
-    letter-spacing: 1px;
-  }
-  #menu-toggle {
-    display: none;
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-  }
+  .header-badge { font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); color: var(--text3); letter-spacing: 1px; }
+  #menu-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 18px; }
 
-  /* ===== SIDEBAR ===== */
   #sidebar {
-    position: fixed;
-    top: var(--header-h);
-    left: 0;
-    width: var(--sidebar-w);
-    height: calc(100vh - var(--header-h));
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-    overflow-y: auto;
-    padding: 20px 0 40px;
-    z-index: 90;
-    transition: transform 0.3s ease;
+    position: fixed; top: var(--header-h); left: 0; width: var(--sidebar-w);
+    height: calc(100vh - var(--header-h)); background: var(--surface);
+    border-right: 1px solid var(--border); overflow-y: auto; padding: 20px 0 40px;
+    z-index: 90; transition: transform 0.3s ease;
   }
   #sidebar::-webkit-scrollbar { width: 4px; }
   #sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
   .nav-section { margin-bottom: 8px; }
-  .nav-section-title {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text3);
-    padding: 12px 20px 6px;
-  }
-  .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 20px;
-    cursor: pointer;
-    color: var(--text2);
-    font-size: 14px;
-    transition: all 0.2s;
-    border-left: 2px solid transparent;
-  }
+  .nav-section-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text3); padding: 12px 20px 6px; }
+  .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 20px; cursor: pointer; color: var(--text2); font-size: 14px; transition: all 0.2s; border-left: 2px solid transparent; }
   .nav-item:hover { background: var(--surface2); color: var(--text); }
-  .nav-item.active {
-    background: rgba(139,92,246,0.12);
-    color: var(--accent2);
-    border-left-color: var(--accent);
-  }
+  .nav-item.active { background: rgba(139,92,246,0.12); color: var(--accent2); border-left-color: var(--accent); }
   .nav-icon { font-size: 16px; min-width: 20px; text-align: center; }
-  .nav-badge {
-    margin-left: auto;
-    font-size: 10px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 1px 6px;
-    border-radius: 10px;
-    color: var(--text3);
-  }
+  .nav-badge { margin-left: auto; font-size: 10px; background: var(--surface2); border: 1px solid var(--border); padding: 1px 6px; border-radius: 10px; color: var(--text3); }
 
-  /* ===== MAIN ===== */
-  #main {
-    margin-left: var(--sidebar-w);
-    margin-top: var(--header-h);
-    min-height: calc(100vh - var(--header-h));
-    padding: 40px 48px;
-    max-width: 1200px;
-  }
+  #main { margin-left: var(--sidebar-w); margin-top: var(--header-h); min-height: calc(100vh - var(--header-h)); padding: 40px 48px; max-width: 1300px; }
 
-  /* ===== PAGES ===== */
   .page { display: none; animation: fadeIn 0.3s ease; }
   .page.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ===== PAGE HEADER ===== */
   .page-header { margin-bottom: 36px; }
-  .page-header h1 {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    background: linear-gradient(135deg, var(--text), var(--accent3));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .page-header h1 { font-size: 32px; font-weight: 700; letter-spacing: 1px; background: linear-gradient(135deg, var(--text), var(--accent3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .page-header p { color: var(--text2); margin-top: 8px; font-size: 15px; line-height: 1.6; }
-  .divider { height: 1px; background: linear-gradient(90deg, var(--accent), transparent); margin: 24px 0; }
+  .divider { height: 1px; background: linear-gradient(90deg, var(--accent), transparent); margin: 28px 0; }
 
-  /* ===== STAT CARDS ===== */
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-bottom: 36px; }
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: all 0.25s;
-  }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 16px; margin-bottom: 36px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; transition: all 0.25s; cursor: default; }
   .stat-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(139,92,246,0.15); }
   .stat-num { font-size: 32px; font-weight: 700; color: var(--gold); line-height: 1; }
   .stat-label { font-size: 12px; color: var(--text3); margin-top: 6px; letter-spacing: 1px; text-transform: uppercase; }
 
-  /* ===== SECTION TITLES ===== */
-  .section-title {
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent2);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .section-title { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent2); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
   .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* ===== CARDS GRID ===== */
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    cursor: pointer;
-    transition: all 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--gold));
-    opacity: 0;
-    transition: opacity 0.25s;
-  }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 28px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.25s; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--gold)); opacity: 0; transition: opacity 0.25s; }
   .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(139,92,246,0.2); }
   .card:hover::before { opacity: 1; }
-  .card-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .card-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
   .card-sub { font-size: 12px; color: var(--accent2); margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
   .card-desc { font-size: 13px; color: var(--text2); line-height: 1.6; }
   .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-  .tag {
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    border: 1px solid;
-  }
+  .tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; border: 1px solid; }
   .tag-purple { border-color: var(--accent); color: var(--accent2); background: rgba(139,92,246,0.1); }
   .tag-gold { border-color: var(--gold); color: var(--gold2); background: rgba(212,168,67,0.1); }
   .tag-red { border-color: var(--red); color: var(--red); background: rgba(224,82,82,0.1); }
   .tag-green { border-color: var(--green); color: var(--green); background: rgba(82,196,114,0.1); }
   .tag-blue { border-color: var(--blue); color: var(--blue); background: rgba(82,149,224,0.1); }
 
-  /* ===== TIMELINE ===== */
   .timeline { position: relative; padding-left: 40px; }
-  .timeline::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent), var(--gold), var(--accent)); }
+  .timeline::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--green), var(--red), var(--accent)); }
   .tl-item { position: relative; margin-bottom: 32px; }
-  .tl-dot {
-    position: absolute;
-    left: -32px;
-    top: 4px;
-    width: 16px; height: 16px;
-    border-radius: 50%;
-    border: 2px solid var(--accent);
-    background: var(--bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .tl-dot { position: absolute; left: -32px; top: 4px; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); display: flex; align-items: center; justify-content: center; }
   .tl-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-  .tl-dot.gold { border-color: var(--gold); }
-  .tl-dot.gold::after { background: var(--gold); }
-  .tl-dot.red { border-color: var(--red); }
-  .tl-dot.red::after { background: var(--red); }
-  .tl-year { font-size: 12px; color: var(--accent2); letter-spacing: 2px; margin-bottom: 4px; }
+  .tl-dot.gold { border-color: var(--gold); } .tl-dot.gold::after { background: var(--gold); }
+  .tl-dot.red { border-color: var(--red); } .tl-dot.red::after { background: var(--red); }
+  .tl-dot.green { border-color: var(--green); } .tl-dot.green::after { background: var(--green); }
+  .tl-year { font-size: 12px; color: var(--accent2); letter-spacing: 2px; margin-bottom: 4px; font-weight: 600; }
   .tl-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
   .tl-desc { font-size: 13px; color: var(--text2); line-height: 1.7; }
 
-  /* ===== TABLE ===== */
   .lore-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
-  .lore-table th {
-    text-align: left;
-    padding: 10px 14px;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text3);
-    border-bottom: 1px solid var(--border);
-    background: var(--surface2);
-  }
-  .lore-table td {
-    padding: 12px 14px;
-    font-size: 13px;
-    color: var(--text2);
-    border-bottom: 1px solid rgba(42,42,74,0.5);
-    vertical-align: top;
-  }
+  .lore-table th { text-align: left; padding: 10px 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text3); border-bottom: 1px solid var(--border); background: var(--surface2); }
+  .lore-table td { padding: 12px 14px; font-size: 13px; color: var(--text2); border-bottom: 1px solid rgba(42,42,74,0.5); vertical-align: top; }
   .lore-table tr:hover td { background: rgba(139,92,246,0.05); }
   .lore-table td:first-child { color: var(--text); font-weight: 500; }
 
-  /* ===== DETAIL PANEL ===== */
-  .detail-panel {
-    display: none;
-    position: fixed;
-    top: var(--header-h);
-    right: 0;
-    width: 420px;
-    height: calc(100vh - var(--header-h));
-    background: var(--surface);
-    border-left: 1px solid var(--border);
-    overflow-y: auto;
-    z-index: 95;
-    padding: 32px;
-    animation: slideIn 0.3s ease;
-  }
-  .detail-panel.open { display: block; }
+  .detail-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 94; }
+  .detail-overlay.open { display: block; }
+  .detail-panel { display: none; position: fixed; top: var(--header-h); right: 0; width: 440px; height: calc(100vh - var(--header-h)); background: var(--surface); border-left: 1px solid var(--border); overflow-y: auto; z-index: 95; padding: 32px; }
+  .detail-panel.open { display: block; animation: slideIn 0.3s ease; }
   @keyframes slideIn { from { transform: translateX(30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-  .detail-close {
-    position: absolute;
-    top: 16px; right: 16px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text2);
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 4px 8px;
-    font-size: 18px;
-    transition: all 0.2s;
-  }
+  .detail-close { position: absolute; top: 16px; right: 16px; background: var(--surface2); border: 1px solid var(--border); color: var(--text2); border-radius: 6px; cursor: pointer; padding: 4px 10px; font-size: 18px; transition: all 0.2s; }
   .detail-close:hover { color: var(--text); border-color: var(--accent); }
-  .detail-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; padding-right: 40px; }
+  .detail-title { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 6px; padding-right: 48px; line-height: 1.3; }
   .detail-role { font-size: 12px; color: var(--accent2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
   .detail-section { margin-bottom: 20px; }
   .detail-section h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
   .detail-section p { font-size: 13px; color: var(--text2); line-height: 1.7; }
 
-  /* ===== EPOCH BANNER ===== */
-  .epoch-banner {
-    border-radius: 16px;
-    padding: 32px;
-    margin-bottom: 28px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid;
-  }
+  .epoch-banner { border-radius: 16px; padding: 32px; margin-bottom: 20px; position: relative; overflow: hidden; border: 1px solid; cursor: pointer; transition: all 0.25s; }
+  .epoch-banner:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
   .epoch-banner.ep1 { background: linear-gradient(135deg, #0f1a0f, #1a2f1a); border-color: #2a5a2a; }
   .epoch-banner.ep2 { background: linear-gradient(135deg, #1a0f0f, #2f1a1a); border-color: #5a2a2a; }
   .epoch-banner.ep3 { background: linear-gradient(135deg, #0f0f1a, #1a1a2f); border-color: #2a2a5a; }
@@ -325,90 +133,48 @@
   .epoch-period { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 12px; }
   .epoch-desc { font-size: 14px; line-height: 1.7; opacity: 0.85; max-width: 600px; }
 
-  /* ===== SEARCH ===== */
-  .search-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 16px;
-    margin-bottom: 28px;
-    transition: border-color 0.2s;
-  }
+  .search-box { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 16px; margin-bottom: 24px; transition: border-color 0.2s; }
   .search-box:focus-within { border-color: var(--accent); }
-  .search-box input {
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--text);
-    font-size: 14px;
-    flex: 1;
-  }
+  .search-box input { background: none; border: none; outline: none; color: var(--text); font-size: 14px; flex: 1; }
   .search-box input::placeholder { color: var(--text3); }
 
-  /* ===== PROGRESS BARS ===== */
-  .metric-row { margin-bottom: 16px; }
-  .metric-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--text2); margin-bottom: 6px; }
-  .metric-label span:last-child { color: var(--accent2); font-weight: 600; }
-  .progress-bg { height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+  .metric-row { margin-bottom: 18px; }
+  .metric-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--text2); margin-bottom: 7px; }
+  .metric-val { color: var(--accent2); font-weight: 600; }
+  .metric-target { color: var(--text3); font-size: 12px; }
+  .progress-bg { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; transition: width 1.2s ease; }
   .fill-purple { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
   .fill-gold { background: linear-gradient(90deg, #a07020, var(--gold)); }
   .fill-green { background: linear-gradient(90deg, #307a48, var(--green)); }
   .fill-red { background: linear-gradient(90deg, #8a3232, var(--red)); }
   .fill-blue { background: linear-gradient(90deg, #2a4a8a, var(--blue)); }
 
-  /* ===== QUOTE ===== */
-  .lore-quote {
-    border-left: 3px solid var(--gold);
-    padding: 16px 20px;
-    background: rgba(212,168,67,0.06);
-    border-radius: 0 8px 8px 0;
-    margin: 20px 0;
-    font-style: italic;
-    color: var(--text2);
-    line-height: 1.7;
-    font-size: 14px;
-  }
+  .lore-quote { border-left: 3px solid var(--gold); padding: 16px 20px; background: rgba(212,168,67,0.06); border-radius: 0 8px 8px 0; margin: 20px 0; font-style: italic; color: var(--text2); line-height: 1.7; font-size: 14px; }
   .lore-quote cite { display: block; margin-top: 8px; font-style: normal; font-size: 12px; color: var(--text3); letter-spacing: 1px; }
 
-  /* ===== COLUMNS ===== */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .info-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  .info-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
   .info-block h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
   .info-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(42,42,74,0.4); font-size: 13px; }
   .info-row:last-child { border-bottom: none; }
   .info-row span:first-child { color: var(--text3); }
-  .info-row span:last-child { color: var(--text); text-align: right; max-width: 60%; }
+  .info-row span:last-child { color: var(--text); text-align: right; max-width: 65%; }
 
-  /* ===== WARNING BOX ===== */
-  .alert-box {
-    border-radius: 10px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    font-size: 13px;
-    line-height: 1.6;
-  }
-  .alert-conflict { background: rgba(224,82,82,0.08); border: 1px solid rgba(224,82,82,0.25); }
-  .alert-note { background: rgba(212,168,67,0.08); border: 1px solid rgba(212,168,67,0.25); }
-  .alert-ok { background: rgba(82,196,114,0.08); border: 1px solid rgba(82,196,114,0.25); }
-  .alert-icon { font-size: 18px; flex-shrink: 0; }
+  .alert-box { border-radius: 10px; padding: 14px 18px; margin-bottom: 14px; display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.6; }
+  .alert-conflict { background: rgba(224,82,82,0.08); border: 1px solid rgba(224,82,82,0.25); color: var(--text2); }
+  .alert-note { background: rgba(212,168,67,0.08); border: 1px solid rgba(212,168,67,0.25); color: var(--text2); }
+  .alert-ok { background: rgba(82,196,114,0.08); border: 1px solid rgba(82,196,114,0.25); color: var(--text2); }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .alert-title { font-weight: 600; color: var(--text); margin-bottom: 3px; }
 
-  /* ===== RESPONSIVE ===== */
+  .char-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; background: var(--surface2); border: 2px solid var(--border); flex-shrink: 0; margin-bottom: 12px; }
+  .faction-stripe { height: 3px; border-radius: 2px; margin-bottom: 14px; }
+
   @media (max-width: 900px) {
     #menu-toggle { display: block; }
     #sidebar { transform: translateX(-100%); }
-    #sidebar.open { transform: translateX(0); }
+    #sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
     #main { margin-left: 0; padding: 24px 20px; }
     .two-col { grid-template-columns: 1fr; }
     .detail-panel { width: 100%; }
@@ -417,12 +183,12 @@
   @media (max-width: 600px) {
     .cards-grid { grid-template-columns: 1fr; }
     .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    #main { padding: 16px; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <button id="menu-toggle" onclick="toggleMenu()">☰</button>
   <div>
@@ -433,102 +199,894 @@
   <div class="header-badge">3 ЭПОХИ · 108 ФАЙЛОВ</div>
 </header>
 
-<!-- SIDEBAR -->
 <nav id="sidebar">
   <div class="nav-section">
     <div class="nav-section-title">Обзор</div>
-    <div class="nav-item active" onclick="showPage('home')">
-      <span class="nav-icon">🏠</span> Главная
-    </div>
-    <div class="nav-item" onclick="showPage('timeline')">
-      <span class="nav-icon">⏳</span> Таймлайн
-    </div>
-    <div class="nav-item" onclick="showPage('metrics')">
-      <span class="nav-icon">📊</span> Метрики ЛОРа
-    </div>
+    <div class="nav-item active" onclick="showPage('home')"><span class="nav-icon">🏠</span> Главная</div>
+    <div class="nav-item" onclick="showPage('timeline')"><span class="nav-icon">⏳</span> Таймлайн</div>
+    <div class="nav-item" onclick="showPage('metrics')"><span class="nav-icon">📊</span> Метрики ЛОРа</div>
   </div>
   <div class="nav-section">
     <div class="nav-section-title">Эпохи</div>
-    <div class="nav-item" onclick="showPage('epoch1')">
-      <span class="nav-icon">⚔️</span> I — Век Героев
-    </div>
-    <div class="nav-item" onclick="showPage('epoch2')">
-      <span class="nav-icon">🏛️</span> II — Старая Империя
-    </div>
-    <div class="nav-item" onclick="showPage('epoch3')">
-      <span class="nav-icon">👁️</span> III — Эпоха Владыки
-    </div>
+    <div class="nav-item" onclick="showPage('epoch1')"><span class="nav-icon">⚔️</span> I — Век Героев</div>
+    <div class="nav-item" onclick="showPage('epoch2')"><span class="nav-icon">🏛️</span> II — Старая Империя</div>
+    <div class="nav-item" onclick="showPage('epoch3')"><span class="nav-icon">👁️</span> III — Эпоха Владыки</div>
   </div>
   <div class="nav-section">
     <div class="nav-section-title">Персонажи</div>
-    <div class="nav-item" onclick="showPage('chars')">
-      <span class="nav-icon">👤</span> Все персонажи <span class="nav-badge">25+</span>
-    </div>
-    <div class="nav-item" onclick="showPage('factions')">
-      <span class="nav-icon">⚜️</span> Фракции
-    </div>
+    <div class="nav-item" onclick="showPage('chars')"><span class="nav-icon">👤</span> Все персонажи <span class="nav-badge">25+</span></div>
+    <div class="nav-item" onclick="showPage('factions')"><span class="nav-icon">⚜️</span> Фракции</div>
   </div>
   <div class="nav-section">
     <div class="nav-section-title">Мир</div>
-    <div class="nav-item" onclick="showPage('geo')">
-      <span class="nav-icon">🗺️</span> География
-    </div>
-    <div class="nav-item" onclick="showPage('religion')">
-      <span class="nav-icon">✨</span> Религии и боги
-    </div>
-    <div class="nav-item" onclick="showPage('cultures')">
-      <span class="nav-icon">📜</span> Культуры
-    </div>
+    <div class="nav-item" onclick="showPage('geo')"><span class="nav-icon">🗺️</span> География</div>
+    <div class="nav-item" onclick="showPage('religion')"><span class="nav-icon">✨</span> Религии и боги</div>
+    <div class="nav-item" onclick="showPage('cultures')"><span class="nav-icon">📜</span> Культуры</div>
   </div>
   <div class="nav-section">
     <div class="nav-section-title">Канон</div>
-    <div class="nav-item" onclick="showPage('dark_party')">
-      <span class="nav-icon">💀</span> Тёмная Партия
-    </div>
-    <div class="nav-item" onclick="showPage('conflicts')">
-      <span class="nav-icon">⚠️</span> Конфликты ЛОРа
-    </div>
+    <div class="nav-item" onclick="showPage('dark_party')"><span class="nav-icon">💀</span> Тёмная Партия</div>
+    <div class="nav-item" onclick="showPage('conflicts')"><span class="nav-icon">⚠️</span> Конфликты ЛОРа</div>
   </div>
 </nav>
 
-<!-- MAIN -->
 <main id="main">
 
-  <!-- HOME -->
-  <div class="page active" id="page-home">
-    <div class="page-header">
-      <h1>Вселенная Оберон</h1>
-      <p>Полная энциклопедия мира: три эпохи, десятки персонажей, государства, боги и живая история кампании.</p>
+<!-- ═══════════════ HOME ═══════════════ -->
+<div class="page active" id="page-home">
+  <div class="page-header">
+    <h1>Вселенная Оберон</h1>
+    <p>Полная энциклопедия мира: три эпохи, десятки персонажей, государства, боги и живая история кампании.</p>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Эпохи</div></div>
+    <div class="stat-card"><div class="stat-num">25+</div><div class="stat-label">Персонажей</div></div>
+    <div class="stat-card"><div class="stat-num">108</div><div class="stat-label">ЛОР-файлов</div></div>
+    <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label">Локаций</div></div>
+    <div class="stat-card"><div class="stat-num">7+</div><div class="stat-label">Фракций</div></div>
+    <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Богов</div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="section-title">Три Эпохи</div>
+  <div class="epoch-banner ep1" onclick="showPage('epoch1')">
+    <div class="epoch-num">I</div>
+    <div class="epoch-title" style="color:#52c472">Век Героев</div>
+    <div class="epoch-period">Эпоха I — Древние времена</div>
+    <div class="epoch-desc">Эпоха легендарных деяний, когда герои вставали против тьмы, а боги были ближе к смертным. Основание великих домов и первых государств. Полулегендарная дия Лейга. Битва в Анденском Урочище.</div>
+  </div>
+  <div class="epoch-banner ep2" onclick="showPage('epoch2')">
+    <div class="epoch-num">II</div>
+    <div class="epoch-title" style="color:#e05252">Старая Империя</div>
+    <div class="epoch-period">Эпоха II — Эра Империи</div>
+    <div class="epoch-desc">Расцвет и падение Старой Империи. Великие герцогства и Порубежье. Набеги варваров Родегаса с Пустоши. Зарождение орденов инквизиции. Нашествие нежити. II век от Пришествия.</div>
+  </div>
+  <div class="epoch-banner ep3" onclick="showPage('epoch3')">
+    <div class="epoch-num">III</div>
+    <div class="epoch-title" style="color:#a78bfa">Эпоха Владыки</div>
+    <div class="epoch-period">Эпоха III — Настоящее время</div>
+    <div class="epoch-desc">Главная сюжетная эпоха. Владыка Небесных Сфер держит мир под своей властью. Пять Обелисков вокруг Святого Града. Тёмная Партия Харсараша. Инквизиция Амона Ри. Вампирские кланы.</div>
+  </div>
+  <div class="divider"></div>
+  <div class="section-title">Главная цель кампании</div>
+  <div class="lore-quote">
+    «Было решено лишить Владыку Небесных Сфер силы и восстановить нормальный наклон оси на планете с помощью обрушения на поверхность планеты "теневой луны". Для этого необходимо уничтожить пять Обелисков вокруг Святого Града.»
+    <cite>— Хроники Тёмной Партии</cite>
+  </div>
+</div>
+
+<!-- ═══════════════ TIMELINE ═══════════════ -->
+<div class="page" id="page-timeline">
+  <div class="page-header">
+    <h1>Таймлайн Оберона</h1>
+    <p>Хронология ключевых событий от основания первых государств до текущей кампании.</p>
+  </div>
+  <div class="section-title">Эпоха I — Век Героев</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot green"></div>
+      <div class="tl-year">ДО ПРИШЕСТВИЯ</div>
+      <div class="tl-title">Основание первых государств</div>
+      <div class="tl-desc">Великие герои объединяют разрозненные племена. Боги активно вмешиваются в дела смертных. Зарождение первых культов и орденов.</div>
     </div>
-    <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Эпохи</div></div>
-      <div class="stat-card"><div class="stat-num">25+</div><div class="stat-label">Персонажей</div></div>
-      <div class="stat-card"><div class="stat-num">108</div><div class="stat-label">ЛОР-файлов</div></div>
-      <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label">Локаций</div></div>
-      <div class="stat-card"><div class="stat-num">7+</div><div class="stat-label">Фракций</div></div>
-      <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Богов</div></div>
+    <div class="tl-item">
+      <div class="tl-dot green"></div>
+      <div class="tl-year">ВЕК ГЕРОЕВ</div>
+      <div class="tl-title">Дия Лейга и основание Дев Щита</div>
+      <div class="tl-desc">Полулегендарная воительница Лейга создаёт первую общину Щитоносиц. Упоминается в эпосе «Дэлевай». Битва в Анденском Урочище становится частью фольклора. Лейга живёт в период ок. 100–150 лет от начала летосчисления.</div>
     </div>
-    <div class="divider"></div>
-    <div class="section-title">Три Эпохи</div>
-    <div class="epoch-banner ep1" onclick="showPage('epoch1')" style="cursor:pointer">
-      <div class="epoch-num">I</div>
-      <div class="epoch-title" style="color:#52c472">Век Героев</div>
-      <div class="epoch-period">Эпоха I — Древние времена</div>
-      <div class="epoch-desc">Эпоха легендарных деяний, когда герои вставали против тьмы, боги были ближе к смертным, а мир ещё не знал Пришествия. Основание великих домов и первых государств.</div>
+    <div class="tl-item">
+      <div class="tl-dot green"></div>
+      <div class="tl-year">ВЕК ГЕРОЕВ</div>
+      <div class="tl-title">Возникновение Гильдии Некромантов</div>
+      <div class="tl-desc">Первые некроманты объединяются в тайную гильдию с семью Кругами посвящения. Закладываются основы некромантических практик и Варлоков.</div>
     </div>
-    <div class="epoch-banner ep2" onclick="showPage('epoch2')" style="cursor:pointer">
-      <div class="epoch-num">II</div>
-      <div class="epoch-title" style="color:#e05252">Старая Империя</div>
-      <div class="epoch-period">Эпоха II — Эра Империи</div>
-      <div class="epoch-desc">Расцвет и падение Старой Империи. Великие герцогства, Порубежье, вторжения варваров с Пустоши. Зарождение орденов инквизиции и борьба за веру.</div>
+  </div>
+  <div class="section-title">Эпоха II — Старая Империя</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-year">НАЧ. II ВЕКА ОТ ПРИШЕСТВИЯ</div>
+      <div class="tl-title">Расцвет Старой Империи</div>
+      <div class="tl-desc">Великие герцогства объединены под властью Империи. Порубежье — буферная зона на манер Запорожской Сечи. Постоянные набеги варваров с Пустоши.</div>
     </div>
-    <div class="epoch-banner ep3" onclick="showPage('epoch3')" style="cursor:pointer">
-      <div class="epoch-num">III</div>
-      <div class="epoch-title" style="color:#a78bfa">Эпоха Владыки</div>
-      <div class="epoch-period">Эпоха III — Настоящее время</div>
-      <div class="epoch-desc">Главная сюжетная эпоха. Владыка Небесных Сфер держит мир под своей властью. Тёмная Партия Харсараша бросает вызов богам. Обелиски. Инквизиция. Вампирские кланы.</div>
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-year">II ВЕК</div>
+      <div class="tl-title">Нашествие Родегаса</div>
+      <div class="tl-desc">Орды Родегаса и нежити опустошают Порубежье. Именно в этот период закаляется движение Щитоносиц — вдовы и женщины без мужей объединяются в отряды самообороны. Общины Дев Щита распространяются по всему Порубежью.</div>
     </div>
-    <div class="divider"></div>
-    <div class="section-title">Ключевые события сейчас</div>
-    <div class="lore-quote">
-      «Было решено лишить Владыку Небесных Сфер силы и восстановить нормальный наклон оси на планете с помощью обрушения на поверхность планеты 
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-year">II ВЕК</div>
+      <div class="tl-title">Пришествие и установление власти Владыки</div>
+      <div class="tl-desc">Владыка Небесных Сфер приходит в мир. Возводятся пять Обелисков вокруг Святого Града — источники силы Владыки. Летосчисление отныне ведётся «от Пришествия».</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-year">II ВЕК</div>
+      <div class="tl-title">Война с фейри</div>
+      <div class="tl-desc">Конфликт с народом фейри. Подробности задокументированы в архивах 3-й эпохи. Итоги войны повлияли на формирование границ Севера (Анарейм).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-year">КОНЕЦ II ВЕКА</div>
+      <div class="tl-title">Падение Старой Империи</div>
+      <div class="tl-desc">Империя распадается. Лакстемское королевство обретает независимость. Великие герцогства становятся самостоятельными. Начало Тёмных Веков.</div>
+    </div>
+  </div>
+  <div class="section-title">Эпоха III — Эпоха Владыки (текущая)</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">НАЧАЛО КАМПАНИИ</div>
+      <div class="tl-title">Харсараш прибывает в баронство Пятиречье</div>
+      <div class="tl-desc">Некромант 6-го Круга посвящения прибывает со служкой Гёрдом для выполнения задания Гильдии. Первые столкновения с местным духовенством. Убийство священника в деревне. Рождение Тёмной Партии.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">РАННЯЯ КАМПАНИЯ</div>
+      <div class="tl-title">Путь к Святому Граду. Формирование Партии</div>
+      <div class="tl-desc">К Харсарашу присоединяются воин Иван Корытов и другие. Ритуал Посвящения — вкушение человеческого мяса. Освобождение ведьмы. Гибель Дарьяны в Карбурге — её душа помещена в доспех Харсараша.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-year">СРЕДНЯЯ КАМПАНИЯ</div>
+      <div class="tl-title">Столкновение с Амоном Ри. Пленение</div>
+      <div class="tl-desc">Отряд инквизиции во главе с Амоном Ри захватывает всю Тёмную Партию. Заточение у подножия Обелиска. Разгадка тайны Обелиска — первый разрушен. Харсараш достигает статуса Варлока в катакомбах Гильдии.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-year">СРЕДНЯЯ КАМПАНИЯ</div>
+      <div class="tl-title">Штурм островного Обелиска</div>
+      <div class="tl-desc">Уничтожен второй Обелиск. Потоплен корабль Ордена инквизиции. Пожар таверны «Три Монаха». Освобождение Рарварты и Ивана из тюрьмы Инквизиции с помощью вампира-священника.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">ТЕКУЩИЕ СОБЫТИЯ</div>
+      <div class="tl-title">Северный поход. Анарейм</div>
+      <div class="tl-desc">Партия направляется на Север уничтожать оставшиеся Обелиски. Странные события в северной деревне: объявление «Мёдорождённого», Харсараш обращает деревню в веру Владычицы Смерти. Охота на эльфа в Анарейме. Харсараш предположительно всё ещё на Севере.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ METRICS ═══════════════ -->
+<div class="page" id="page-metrics">
+  <div class="page-header">
+    <h1>Метрики ЛОРа</h1>
+    <p>Системная оценка состояния вселенной по ключевым показателям качества и полноты.</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="section-title">Полнота документации</div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Персонажи задокументированы</span><span class="metric-val">72% <span class="metric-target">→ цель 90%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-purple" style="width:72%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>География описана</span><span class="metric-val">55% <span class="metric-target">→ цель 80%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-blue" style="width:55%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Таймлайн Эпохи I</span><span class="metric-val">30% <span class="metric-target">→ цель 70%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-green" style="width:30%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Таймлайн Эпохи II</span><span class="metric-val">55% <span class="metric-target">→ цель 75%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-gold" style="width:55%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Таймлайн Эпохи III</span><span class="metric-val">85% <span class="metric-target">→ цель 95%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-purple" style="width:85%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Организации и фракции</span><span class="metric-val">60% <span class="metric-target">→ цель 85%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-blue" style="width:60%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Религии и пантеон</span><span class="metric-val">65% <span class="metric-target">→ цель 85%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-gold" style="width:65%"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-title">Качество канона</div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Внутренняя непротиворечивость</span><span class="metric-val">68% <span class="metric-target">→ цель 95%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-red" style="width:68%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Глубина персонажей</span><span class="metric-val">78% <span class="metric-target">→ цель 90%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-purple" style="width:78%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Связность событий (причины → следствия)</span><span class="metric-val">60% <span class="metric-target">→ цель 85%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-blue" style="width:60%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Уникальность культур/народов</span><span class="metric-val">70% <span class="metric-target">→ цель 90%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-green" style="width:70%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Магическая система описана</span><span class="metric-val">45% <span class="metric-target">→ цель 80%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-red" style="width:45%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Стилистическая однородность</span><span class="metric-val">55% <span class="metric-target">→ цель 85%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-gold" style="width:55%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label"><span>Общая готовность вселенной</span><span class="metric-val">64% <span class="metric-target">→ цель 90%</span></span></div>
+        <div class="progress-bg"><div class="progress-fill fill-purple" style="width:64%"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section-title">Приоритетные задачи</div>
+  <table class="lore-table">
+    <thead><tr><th>#</th><th>Задача</th><th>Приоритет</th><th>Статус</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Документировать Эпоху I — хронология и персонажи</td><td><span class="tag tag-red">Критично</span></td><td>🔴 Не начато</td></tr>
+      <tr><td>2</td><td>Создать единый пантеон богов с атрибутами</td><td><span class="tag tag-red">Критично</span></td><td>🟡 Частично</td></tr>
+      <tr><td>3</td><td>Устранить конфликты версий истории Харсараша</td><td><span class="tag tag-red">Критично</span></td><td>🟡 В работе</td></tr>
+      <tr><td>4</td><td>Описать магическую систему (Круги, Варлоки, некритто)</td><td><span class="tag tag-gold">Высокий</span></td><td>🟡 Частично</td></tr>
+      <tr><td>5</td><td>Карта мира с указанием всех упомянутых локаций</td><td><span class="tag tag-gold">Высокий</span></td><td>🔴 Не начато</td></tr>
+      <tr><td>6</td><td>Перевести все .docx в единый текстовый формат</td><td><span class="tag tag-purple">Средний</span></td><td>🔴 Не начато</td></tr>
+      <tr><td>7</td><td>Задокументировать вампирские кланы полностью</td><td><span class="tag tag-purple">Средний</span></td><td>🟡 Частично</td></tr>
+      <tr><td>8</td><td>Написать финал арки Обелисков</td><td><span class="tag tag-blue">Низкий</span></td><td>🔴 Не начато</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ EPOCH 1 ═══════════════ -->
+<div class="page" id="page-epoch1">
+  <div class="page-header">
+    <h1>⚔️ Эпоха I — Век Героев</h1>
+    <p>Древнейшая задокументированная эпоха вселенной Оберон. Легенды, первые государства, боги среди смертных.</p>
+  </div>
+  <div class="alert-box alert-note"><div class="alert-icon">⚠️</div><div><div class="alert-title">Слабо задокументирована</div>Эпоха I имеет наименьшее количество первичных источников. Большинство событий известны через упоминания в текстах Эпох II и III. Рекомендуется расширить ЛОР.</div></div>
+  <div class="two-col">
+    <div class="info-block">
+      <h3>📋 Общие сведения</h3>
+      <div class="info-row"><span>Название</span><span>Век Героев</span></div>
+      <div class="info-row"><span>Летосчисление</span><span>До Пришествия</span></div>
+      <div class="info-row"><span>Документация</span><span>~30% завершена</span></div>
+      <div class="info-row"><span>Источники</span><span>Упоминания в ЭП II–III, эпос «Дэлевай»</span></div>
+    </div>
+    <div class="info-block">
+      <h3>⚔️ Ключевые события</h3>
+      <div class="info-row"><span>Основание государств</span><span>Великие герои объединяют племена</span></div>
+      <div class="info-row"><span>Битва при Анденском Урочище</span><span>Задокументирована в эпосе</span></div>
+      <div class="info-row"><span>Дия Лейга</span><span>ок. 100–150 лет от нач. летосчисл.</span></div>
+      <div class="info-row"><span>Первые некроманты</span><span>Зарождение Гильдии</span></div>
+    </div>
+  </div>
+  <div class="section-title">Легендарные личности</div>
+  <div class="cards-grid">
+    <div class="card" onclick="openDetail('Дия Лейга','Основательница Дев Щита','Полулегендарная воительница, основавшая первую общину Щитоносиц. Жила в период ок. 100–150 лет от начала летосчисления. Упоминается в эпосе «Дэлевай», посвящённом бойне в Анденском Урочище. Имела нескольких верных учениц, которые впоследствии основали собственные общины.','Щитоносицы · Полулегенда · Анденское Урочище')">
+      <div class="char-avatar">🛡️</div>
+      <div class="card-title">Дия Лейга</div>
+      <div class="card-sub">Основательница Дев Щита</div>
+      <div class="card-desc">Полулегендарная воительница. Герой эпоса «Дэлевай». Битва при Анденском Урочище.</div>
+      <div class="card-tags"><span class="tag tag-green">Легенда</span><span class="tag tag-blue">Дева Щита</span></div>
+    </div>
+  </div>
+  <div class="lore-quote">
+    «Историки считают её полулегендарной личностью, которая существовала в период от 100 по 150 год. О ней поют несколько песен, и она упоминается в эпосе "Дэлевай", повествующем о бойне в Анденском Урочище.»
+    <cite>— Из документации о Щитоносицах</cite>
+  </div>
+</div>
+
+<!-- ═══════════════ EPOCH 2 ═══════════════ -->
+<div class="page" id="page-epoch2">
+  <div class="page-header">
+    <h1>🏛️ Эпоха II — Старая Империя</h1>
+    <p>Эра расцвета и крушения Империи. Великие герцогства, Порубежье, нашествия с Пустоши, рождение Инквизиции.</p>
+  </div>
+  <div class="two-col">
+    <div class="info-block">
+      <h3>📋 Общие сведения</h3>
+      <div class="info-row"><span>Период</span><span>II век от Пришествия</span></div>
+      <div class="info-row"><span>Главная держава</span><span>Старая Империя</span></div>
+      <div class="info-row"><span>Буферная зона</span><span>Порубежье (аналог Запорожской Сечи)</span></div>
+      <div class="info-row"><span>Угроза</span><span>Орды Родегаса + нежить</span></div>
+      <div class="info-row"><span>Документация</span><span>~55% завершена</span></div>
+    </div>
+    <div class="info-block">
+      <h3>⚔️ Ключевые события</h3>
+      <div class="info-row"><span>Расцвет Империи</span><span>Объединение герцогств</span></div>
+      <div class="info-row"><span>Нашествие Родегаса</span><span>Волны варваров с Пустоши</span></div>
+      <div class="info-row"><span>Война с фейри</span><span>Север, Анарейм</span></div>
+      <div class="info-row"><span>Пришествие</span><span>Владыка устанавливает власть</span></div>
+      <div class="info-row"><span>Падение Империи</span><span>Распад, Тёмные века</span></div>
+    </div>
+  </div>
+  <div class="section-title">Государства и регионы</div>
+  <table class="lore-table">
+    <thead><tr><th>Регион</th><th>Описание</th><th>Статус к концу эпохи</th></tr></thead>
+    <tbody>
+      <tr><td>Старая Империя</td><td>Центральная держава, объединявшая герцогства</td><td>🔴 Распалась</td></tr>
+      <tr><td>Порубежье</td><td>Буферная зона между Империей и Пустошью. Постоянные набеги варваров. Колыбель Дев Щита.</td><td>🟡 Независимо</td></tr>
+      <tr><td>Великие Герцогства</td><td>Вассалы Империи, включая территории с городами Асинборг и другими</td><td>🟢 Обрели независимость</td></tr>
+      <tr><td>Лакстемское королевство</td><td>Отдельное королевство, история подробно документирована</td><td>🟢 Независимо</td></tr>
+      <tr><td>Зендар</td><td>Граничное государство, упоминается в контексте гор Табарсарана</td><td>❓ Неизвестно</td></tr>
+      <tr><td>Анарейм (Север)</td><td>Северные земли. Война с фейри. Место охоты на эльфа.</td><td>🟡 Автономно</td></tr>
+    </tbody>
+  </table>
+  <div class="lore-quote">
+    «Порубежье нач. II века от Пришествия представляло собой эдакую Запорожскую Сечь, из-за набегов варваров из Пустоши и в последствии орд Родегаса и нежити.»
+    <cite>— Хроники Дев Щита</cite>
+  </div>
+</div>
+
+<!-- ═══════════════ EPOCH 3 ═══════════════ -->
+<div class="page" id="page-epoch3">
+  <div class="page-header">
+    <h1>👁️ Эпоха III — Эпоха Владыки</h1>
+    <p>Настоящее время. Главная сюжетная эпоха кампании с развёрнутой документацией по 8 категориям.</p>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-num">25+</div><div class="stat-label">Персонажей</div></div>
+    <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Обелисков</div></div>
+    <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Уничтожено</div></div>
+    <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Категорий ЛОРа</div></div>
+  </div>
+  <div class="two-col">
+    <div class="info-block">
+      <h3>🌍 Состояние мира</h3>
+      <div class="info-row"><span>Верховная власть</span><span>Владыка Небесных Сфер</span></div>
+      <div class="info-row"><span>Религия</span><span>Культ Владыки + запрещённые культы</span></div>
+      <div class="info-row"><span>Главная угроза</span><span>Тёмная Партия Харсараша</span></div>
+      <div class="info-row"><span>Силовая структура</span><span>Инквизиция (Амон Ри)</span></div>
+      <div class="info-row"><span>Подпольные силы</span><span>Гильдия Некромантов, вампиры</span></div>
+    </div>
+    <div class="info-block">
+      <h3>🏛️ Категории документации</h3>
+      <div class="info-row"><span>📁 География</span><span>Папка заполнена</span></div>
+      <div class="info-row"><span>📁 История</span><span>10 файлов</span></div>
+      <div class="info-row"><span>📁 Культура</span><span>Папка заполнена</span></div>
+      <div class="info-row"><span>📁 Организации</span><span>Папка заполнена</span></div>
+      <div class="info-row"><span>📁 Персонажи</span><span>25+ файлов</span></div>
+      <div class="info-row"><span>📁 Природа</span><span>Папка заполнена</span></div>
+    </div>
+  </div>
+  <div class="section-title">Расстановка сил</div>
+  <table class="lore-table">
+    <thead><tr><th>Сила</th><th>Позиция</th><th>Цель</th></tr></thead>
+    <tbody>
+      <tr><td>Владыка Небесных Сфер</td><td>🟢 Доминирует</td><td>Сохранить власть. Обелиски — источник силы.</td></tr>
+      <tr><td>Инквизиция (Амон Ри)</td><td>🟢 Активна</td><td>Уничтожать некромантов и еретиков</td></tr>
+      <tr><td>Тёмная Партия</td><td>🟡 На Севере</td><td>Уничтожить Обелиски, обрушить теневую луну</td></tr>
+      <tr><td>Гильдия Некромантов</td><td>🟡 Подпольно</td><td>Собственные цели, связаны с Харсарашем</td></tr>
+      <tr><td>Вампирские кланы</td><td>🟡 Скрытно</td><td>Автономное существование, интриги</td></tr>
+      <tr><td>Девы Щита</td><td>🟢 Независимы</td><td>Защита Порубежья, собственный кодекс</td></tr>
+      <tr><td>Орден инквизиции</td><td>🔴 Ослаблен</td><td>Корабль потоплен, потери от Тёмной Партии</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ CHARACTERS ═══════════════ -->
+<div class="page" id="page-chars">
+  <div class="page-header">
+    <h1>Персонажи</h1>
+    <p>Все задокументированные персонажи вселенной Оберон. Нажмите на карточку для подробностей.</p>
+  </div>
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="text" id="char-search" placeholder="Поиск по имени или роли..." oninput="filterChars()">
+  </div>
+  <div class="section-title">Тёмная Партия</div>
+  <div class="cards-grid" id="chars-dark">
+    <div class="card" data-name="Харсараш" onclick="openDetail('Харсараш','Основатель Тёмной Партии · Некромант-Варлок','Некромант 6-го Круга посвящения — потенциальный глава Гильдии. Прибыл в баронство Пятиречье со служкой-некритто Гёрдом. Основатель Тёмной Партии. Поклоняется Владычице Смерти Энлиль. После получения награды от Гильдии стал Варлоком — неживой, но и немёртвый маг с магической бронёй, внутри которой обитает душа Дарьяны. Цель: уничтожить пять Обелисков и обрушить теневую луну на планету для ослабления власти Владыки Небесных Сфер. Обладает пытливым умом, нестандартным мышлением.','Некромант · Варлок · Гильдия Некромантов · Владычица Энлиль')">
+      <div class="char-avatar">💀</div>
+      <div class="card-title">Харсараш</div>
+      <div class="card-sub">Основатель · Некромант-Варлок</div>
+      <div class="card-desc">6-й Круг посвящения. Варлок с душой Дарьяны в броне. Ведёт Партию к уничтожению Обелисков.</div>
+      <div class="card-tags"><span class="tag tag-purple">Варлок</span><span class="tag tag-red">Некромант</span><span class="tag tag-gold">6й Круг</span></div>
+    </div>
+    <div class="card" data-name="Иван Корытов" onclick="openDetail('Иван Корытов','Воин Тёмной Партии','Воин, вступивший в Тёмную Партию одним из первых. Накануне выполнил задание от гильдии убийц, спас свою жизнь и помешал инквизитору Лаэру предотвратить освобождение бога Войны Скамкеля. Попадал в плен к Инквизиции, был освобождён Харсарашем из тюрьмы Инквизиции.','Воин · Тёмная Партия · Бог Войны Скамкель')">
+      <div class="char-avatar">⚔️</div>
+      <div class="card-title">Иван Корытов</div>
+      <div class="card-sub">Воин Тёмной Партии</div>
+      <div class="card-desc">Первый соратник Харсараша. Гильдия убийц. Помешал освобождению Скамкеля. Пленник Инквизиции.</div>
+      <div class="card-tags"><span class="tag tag-red">Воин</span><span class="tag tag-purple">Тёмная Партия</span></div>
+    </div>
+    <div class="card" data-name="Дарьяна" onclick="openDetail('Дарьяна','Душа в доспехе Харсараша','Девушка, встреченная Харсарашем в поле. Погибла в городке Карбурге. Харсараш вселил её душу в свой магический доспех — она продолжает существовать как часть его Варлочьей брони. Её влюблённость в Харсараша — часть его ранней истории.','Погибшая · Душа-в-доспехе · Карбург')">
+      <div class="char-avatar">👻</div>
+      <div class="card-title">Дарьяна</div>
+      <div class="card-sub">Душа в доспехе Харсараша</div>
+      <div class="card-desc">Погибла в Карбурге. Душа вселена в магическую броню Харсараша. Была влюблена в некроманта.</div>
+      <div class="card-tags"><span class="tag tag-purple">Дух</span><span class="tag tag-gold">Варлок-броня</span></div>
+    </div>
+    <div class="card" data-name="Гёрд" onclick="openDetail('Гёрд (некритто)','Служка-некритто Харсараша','Служка Харсараша, которого некромант считал мальчиком, однако Гёрд оказался(лась) девушкой 16 лет — «тоща и подобна доске». Прибыл(а) вместе с Харсарашем в баронство Пятиречье. Во время инцидента в первой деревне попрактиковался(лась) в поднятии мёртвых, завалив в свинарнике свинью. Харсараш за шиворот вытащил(а) его(её) из деревни в разгар антинекромантских манифестаций.','Некритто · Служка · Ранняя кампания')">
+      <div class="char-avatar">🧙</div>
+      <div class="card-title">Гёрд</div>
+      <div class="card-sub">Служка-некритто</div>
+      <div class="card-desc">Некритто Харсараша. 16 лет, девушка — чего некромант не знал. Ученик некромантии. Инцидент со свиньёй.</div>
+      <div class="card-tags"><span class="tag tag-purple">Некритто</span><span class="tag tag-gold">Служка</span></div>
+    </div>
+  </div>
+  <div class="section-title">Инквизиция</div>
+  <div class="cards-grid" id="chars-inq">
+    <div class="card" data-name="Амон Ри" onclick="openDetail('Амон Ри','Командир отряда Инквизиции','Возглавляет отряд Инквизиции, преследующий Тёмную Партию. Первое столкновение с Харсарашем произошло в предместьях Святого Града — Партия была захвачена в плен. Второй раз Амон Ри обложил таверну «Три Монаха» и поджёг её. Сильнейший противник, с которым сталкивалась Партия.','Инквизиция · Святой Град · Главный антагонист')">
+      <div class="char-avatar">🔥</div>
+      <div class="card-title">Амон Ри</div>
+      <div class="card-sub">Командир Инквизиции</div>
+      <div class="card-desc">Главный преследователь Тёмной Партии. Захватил всю Партию в плен. Сжёг таверну «Три Монаха».</div>
+      <div class="card-tags"><span class="tag tag-red">Инквизиция</span><span class="tag tag-gold">Антагонист</span></div>
+    </div>
+    <div class="card" data-name="Лаэр" onclick="openDetail('Лаэр','Инквизитор','Инквизитор, которому Иван Корытов помешал предотвратить освобождение бога Войны Скамкеля. Упоминается как представитель Инквизиции в ранних событиях кампании.','Инквизиция · Бог Скамкель · Ранняя кампания')">
+      <div class="char-avatar">⚖️</div>
+      <div class="card-title">Лаэр</div>
+      <div class="card-sub">Инквизитор</div>
+      <div class="card-desc">Пытался предотвратить освобождение Скамкеля, бога Войны. Остановлен Иваном Корытовым.</div>
+      <div class="card-tags"><span class="tag tag-red">Инквизиция</span></div>
+    </div>
+  </div>
+  <div class="section-title">Прочие персонажи III эпохи</div>
+  <div class="cards-grid" id="chars-other">
+    <div class="card" data-name="Тингиллиат Ал-Эролд" onclick="openDetail('Тингиллиат Ал-Эролд','Персонаж Эпохи Владыки','Задокументирован в архивах 3-й эпохи. Подробности требуют расшифровки исходного .docx файла.','Эпоха III · Персонаж')">
+      <div class="char-avatar">🧝</div>
+      <div class="card-title">Тингиллиат Ал-Эролд</div>
+      <div class="card-sub">Персонаж Эпохи III</div>
+      <div class="card-desc">Задокументирован в архивах. Полное досье в репозитории.</div>
+      <div class="card-tags"><span class="tag tag-blue">Эпоха III</span></div>
+    </div>
+    <div class="card" data-name="Асгейр" onclick="openDetail('Асгейр','Персонаж Эпохи Владыки','Задокументирован в отдельном файле репозитория. Предположительно боевой персонаж.','Эпоха III · Персонаж')">
+      <div class="char-avatar">🪓</div>
+      <div class="card-title">Асгейр</div>
+      <div class="card-sub">Персонаж Эпохи III</div>
+      <div class="card-desc">Отдельный файл досье. Полная информация в архиве ЛОРа.</div>
+      <div class="card-tags"><span class="tag tag-blue">Эпоха III</span></div>
+    </div>
+    <div class="card" data-name="Баронесса Дайна Ягрум" onclick="openDetail('Баронесса Дайна Ягрум','Правительница баронства в горах Табарсарана','Правительница небольшого баронства в горах Табарсарана на границе с Зендаром. Задокументирована в отдельном файле.','Табарсаран · Зендар · Баронесса')">
+      <div class="char-avatar">👑</div>
+      <div class="card-title">Баронесса Дайна Ягрум</div>
+      <div class="card-sub">Правительница · Табарсаран</div>
+      <div class="card-desc">Горное баронство на границе с Зендаром. Горы Табарсарана.</div>
+      <div class="card-tags"><span class="tag tag-gold">Баронесса</span><span class="tag tag-blue">Табарсаран</span></div>
+    </div>
+    <div class="card" data-name="Горн" onclick="openDetail('Горн','Воин из горного города Асинборга','Воин, происходящий из горного города Асинборга. Задокументирован в архивах 3-й эпохи.','Асинборг · Горный город · Воин')">
+      <div class="char-avatar">🏔️</div>
+      <div class="card-title">Горн</div>
+      <div class="card-sub">Воин из Асинборга</div>
+      <div class="card-desc">Происходит из горного города Асинборга. Архивы 3-й эпохи.</div>
+      <div class="card-tags"><span class="tag tag-red">Воин</span><span class="tag tag-blue">Асинборг</span></div>
+    </div>
+    <div class="card" data-name="Хама'Ам" onclick="openDetail('Хама_Ам','Контрабандист, работорговец, наркобарон, поэт и просто хороший человек','Весьма колоритный персонаж с развёрнутым досье. Занимается широким спектром деятельности: контрабанда, работорговля, наркоторговля, сутенерство. При этом — поэт. Самоирония в названии файла говорит о нарративной роли «серого» персонажа.','Криминал · Поэт · Эпоха III')">
+      <div class="char-avatar">🎭</div>
+      <div class="card-title">Хама'Ам</div>
+      <div class="card-sub">Контрабандист · Поэт</div>
+      <div class="card-desc">«Контрабандист, работорговец, наркобарон, сутенер, поэт и просто хороший человек.»</div>
+      <div class="card-tags"><span class="tag tag-red">Криминал</span><span class="tag tag-gold">Поэт</span></div>
+    </div>
+    <div class="card" data-name="Конрад" onclick="openDetail('Конрад','Персонаж Эпохи Владыки','Крупный файл (29 КБ) — один из наиболее подробно задокументированных персонажей. Полное досье в репозитории.','Эпоха III · Подробный досье')">
+      <div class="char-avatar">🗡️</div>
+      <div class="card-title">Конрад</div>
+      <div class="card-sub">Персонаж Эпохи III</div>
+      <div class="card-desc">Один из наиболее подробно задокументированных персонажей (29 КБ досье).</div>
+      <div class="card-tags"><span class="tag tag-purple">Детально</span><span class="tag tag-blue">Эпоха III</span></div>
+    </div>
+    <div class="card" data-name="Эрнест Флотин" onclick="openDetail('Эрнест Флотин','Персонаж Эпохи Владыки','Задокументирован в объёмном файле (21 КБ). Полная информация в архиве репозитория.','Эпоха III · Персонаж')">
+      <div class="char-avatar">⚓</div>
+      <div class="card-title">Эрнест Флотин</div>
+      <div class="card-sub">Персонаж Эпохи III</div>
+      <div class="card-desc">Объёмное досье (21 КБ). Подробная биография в архиве.</div>
+      <div class="card-tags"><span class="tag tag-blue">Эпоха III</span></div>
+    </div>
+    <div class="card" data-name="Эйнар" onclick="openDetail('Эйнар','Персонаж Эпохи Владыки','Задокументирован в файле репозитория. Детали требуют расшифровки .docx.','Эпоха III · Персонаж')">
+      <div class="char-avatar">🌊</div>
+      <div class="card-title">Эйнар</div>
+      <div class="card-sub">Персонаж Эпохи III</div>
+      <div class="card-desc">Досье в архиве. Детальная биография доступна в репозитории.</div>
+      <div class="card-tags"><span class="tag tag-blue">Эпоха III</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ FACTIONS ═══════════════ -->
+<div class="page" id="page-factions">
+  <div class="page-header">
+    <h1>Фракции и организации</h1>
+    <p>Все ключевые организации, ордены и группировки вселенной Оберон.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="card" onclick="openDetail('Тёмная Партия','Главная сюжетная фракция','Основана некромантом Харсарашем. Ключевая цель — уничтожить пять Обелисков вокруг Святого Града и обрушить теневую луну. Ритуал Посвящения — вкушение человеческого мяса. Состав: Харсараш (лидер), Иван Корытов, Равварта, вампир-священник и другие. На данный момент находится на Севере (Анарейм).','Харсараш · Обелиски · Теневая луна · Север')">
+      <div class="faction-stripe" style="background:linear-gradient(90deg,#8b5cf6,#e05252)"></div>
+      <div class="card-title">💀 Тёмная Партия</div>
+      <div class="card-sub">Главная сюжетная фракция</div>
+      <div class="card-desc">Некромант Харсараш и его соратники. Цель: уничтожить Обелиски, обрушить теневую луну, сломать власть Владыки.</div>
+      <div class="card-tags"><span class="tag tag-purple">Главная</span><span class="tag tag-red">Тёмная</span><span class="tag tag-gold">Активна</span></div>
+    </div>
+    <div class="card" onclick="openDetail('Гильдия Некромантов','Тайная организация некромантов','Тайная организация с 7 Кругами посвящения. Харсараш на момент начала кампании — 6-й Круг, потенциальный будущий глава. Гильдия имеет ячейку в Святом Граде (катакомбы). После завершения задания Харсараш получил повышение до Варлока. Гильдия выдаёт задания и награждает своих членов.','7 Кругов · Катакомбы · Святой Град · Варлоки')">
+      <div class="faction-stripe" style="background:linear-gradient(90deg,#5b21b6,#7c3aed)"></div>
+      <div class="card-title">🔮 Гильдия Некромантов</div>
+      <div class="card-sub">Тайная организация</div>
+      <div class="card-desc">7 Кругов посвящения. Ячейка в катакомбах Святого Града. Создаёт Варлоков. Харсараш — 6-й Круг.</div>
+      <div class="card-tags"><span class="tag tag-purple">Тайная</span><span class="tag tag-red">Некромантия</span></div>
+    </div>
+    <div class="card" onclick="openDetail('Инквизиция','Орден Владыки Небесных Сфер','Силовой орден Владыки. Преследует еретиков, некромантов и нечисть. Возглавляется (в части, известной нам) Амоном Ри. Обладает собственными кораблями (один потоплен Тёмной Партией), тюрьмами с катакомбами, пытками. Охраняет Обелиски.','Амон Ри · Владыка · Святой Град · Обелиски')">
+      <div class="faction-stripe" style="background:linear-gradient(90deg,#b45309,#d97706)"></div>
+      <div class="card-title">⚖️ Инквизиция</div>
+      <div class="card-sub">Орден Владыки</div>
+      <div class="card-desc">Преследует некромантов и еретиков. Амон Ри — командир. Корабль потоплен. Тюрьма с пытками в Святом Граде.</div>
+      <div class="card-tags"><span class="tag tag-gold">Власть</span><span class="tag tag-red">Враг ТП</span></div>
+    </div>
+    <div class="card" onclick="openDetail('Девы Щита (Щитоносицы)','Военный орден женщин-воительниц','Основаны в Эпоху I дией Лейгой. Живут по строгому кодексу. Тактика — стена щитов. Дополнительно существуют Селунды — неистовые воительницы, употребляющие боевые зелья, с шрамами и ожогами. Живут максимум до 40 лет. Вождь называется дия. Право на замужество — только через поражение в честном бою.','Лейга · Порубежье · Кодекс · Селунды')">
+      <div class="faction-stripe" style="background:linear-gradient(90deg,#1d4ed8,#3b82f6)"></div>
+      <div class="card-title">🛡️ Девы Щита</div>
+      <div class="card-sub">Орден воительниц</div>
+      <div class="card-desc">Основаны дией Лейгой. Стена щитов. Строгий кодекс чести. Элита — Селунды (неистовые берсеркеры).</div>
+      <div class="card-tags"><span class="tag tag-blue">Воительницы</span><span class="tag tag-green">Порубежье</span></div>
+    </div>
+    <div class="card" onclick="openDetail('Вампирские кланы','Подпольные организации вампиров','Действуют в тени. Упоминается вампир под личиной священника, помогший Тёмной Партии бежать из тюрьмы Инквизиции. В репозитории есть отдельный файл «О родах, сиречь кланах вампирских». Несколько родов с разными традициями.','Кланы · Вампиры · Роды · Подполье')">
+      <div class="faction-stripe" style="background:linear-gradient(90deg,#7f1d1d,#dc2626)"></div>
+      <div class="card-title">🧛 Вампирские кланы</div>
+      <div class="card-sub">Роды и кланы вампиров</div>
+      <div class="card-desc">Несколько родов. Вампир-«священник» помог ТП. Скрытно действуют среди людей. Отдельный документ о родах.</div>
+      <div class="card-tags"><span class="tag tag-red">Нежить</span><span class="tag tag-purple">Тайные</span></div>
+    </div>
+    <div class="card" onclick="openDetail('Культ Владыки Небесных Сфер','Государственная религия','Самое почитаемое божество Оберона. Имеет собственную иерархию: Первосвященники (отдельный документ). Инквизиция служит этому культу. Пять Обелисков — источники силы Владыки. Цель Тёмной Партии — ослабить этого бога.','Владыка · Первосвященники · Обелиски · Государственная вера')">
+      <div class="faction-stripe" style="background:linear-gradient(90deg,#713f12,#ca8a04)"></div>
+      <div class="card-title">✨ Культ Владыки</div>
+      <div class="card-sub">Государственная религия</div>
+      <div class="card-desc">Доминирующая вера. Первосвященники. Инквизиция. Пять Обелисков — источники божественной силы.</div>
+      <div class="card-tags"><span class="tag tag-gold">Государственная</span><span class="tag tag-red">Враг ТП</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ GEO ═══════════════ -->
+<div class="page" id="page-geo">
+  <div class="page-header">
+    <h1>География Оберона</h1>
+    <p>Локации, регионы и места событий, упомянутые в документации.</p>
+  </div>
+  <div class="alert-box alert-note"><div class="alert-icon">🗺️</div><div><div class="alert-title">Карта не создана</div>Физическая карта мира отсутствует в ЛОРе. Рекомендуется как приоритетная задача. Все локации восстановлены из текстовых упоминаний.</div></div>
+  <div class="section-title">Ключевые локации</div>
+  <table class="lore-table">
+    <thead><tr><th>Локация</th><th>Тип</th><th>Значение</th><th>Эпоха</th></tr></thead>
+    <tbody>
+      <tr><td>Святой Град</td><td>Столица / Святыня</td><td>Центр власти Владыки. Пять Обелисков по периметру. Гильдия Некромантов в катакомбах. Тюрьма Инквизиции.</td><td>III</td></tr>
+      <tr><td>Баронство Пятиречье</td><td>Баронство</td><td>Место начала кампании Харсараша. Первые события Тёмной Партии.</td><td>III</td></tr>
+      <tr><td>Порубежье</td><td>Пограничный регион</td><td>Буферная зона. Колыбель Дев Щита. Постоянные набеги с Пустоши.</td><td>II–III</td></tr>
+      <tr><td>Пустошь</td><td>Дикие земли</td><td>Источник варварских набегов. Орды Родегаса. Нежить.</td><td>II–III</td></tr>
+      <tr><td>Карбург</td><td>Городок</td><td>Место гибели Дарьяны. Обворован городничий.</td><td>III</td></tr>
+      <tr><td>Анарейм (Север)</td><td>Северный регион</td><td>Текущее место действия. «Охота на эльфа». Война с фейри в прошлом. Северная деревня Харсараша.</td><td>II–III</td></tr>
+      <tr><td>Горы Табарсарана</td><td>Горный регион</td><td>Баронство Дайны Ягрум. Граница с Зендаром.</td><td>III</td></tr>
+      <tr><td>Асинборг</td><td>Горный город</td><td>Родной город воина Горна.</td><td>III</td></tr>
+      <tr><td>Зендар</td><td>Государство</td><td>Граничит с горами Табарсарана.</td><td>III</td></tr>
+      <tr><td>Лакстемское королевство</td><td>Королевство</td><td>Отдельная держава. Подробная история задокументирована.</td><td>II–III</td></tr>
+      <tr><td>Анденское Урочище</td><td>Историческое место</td><td>Место легендарной битвы. Упомянуто в эпосе «Дэлевай» в связи с Лейгой.</td><td>I</td></tr>
+      <tr><td>Таверна «Три Монаха»</td><td>Таверна</td><td>Ключевое место Эпохи III. Сожжена Амоном Ри при окружении Тёмной Партии.</td><td>III</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ RELIGION ═══════════════ -->
+<div class="page" id="page-religion">
+  <div class="page-header">
+    <h1>Религии и Боги</h1>
+    <p>Пантеон Оберона: божества, культы и их роль в истории мира.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="card" onclick="openDetail('Владыка Небесных Сфер','Верховное божество Оберона','Самое почитаемое божество. Государственная религия. Его власть держится на пяти Обелисках вокруг Святого Града. Инквизиция служит ему. Первосвященники — высшая церковная власть. Тёмная Партия стремится ослабить его, обрушив теневую луну. Файл в репозитории: «Владыка Небесных Сфер — самое почитаемое божество Оберона».','Государственная вера · Инквизиция · Обелиски')">
+      <div class="char-avatar">⭐</div>
+      <div class="card-title">Владыка Небесных Сфер</div>
+      <div class="card-sub">Верховный бог · Государственная вера</div>
+      <div class="card-desc">Самое почитаемое божество. Пять Обелисков — источники его силы. Инквизиция — его армия.</div>
+      <div class="card-tags"><span class="tag tag-gold">Верховный</span><span class="tag tag-red">Враг ТП</span></div>
+    </div>
+    <div class="card" onclick="openDetail('Энлиль — Владычица Смерти','Богиня смерти и некромантии','Богине Энлиль поклоняется Харсараш и вся Тёмная Партия. Гильдия Некромантов связана с этим культом. Противостоит Владыке Небесных Сфер. Обращение деревни на Севере в веру Владычицы — один из ключевых эпизодов кампании.','Некромантия · Смерть · Тёмная Партия · Гильдия')">
+      <div class="char-avatar">💀</div>
+      <div class="card-title">Энлиль</div>
+      <div class="card-sub">Владычица Смерти</div>
+      <div class="card-desc">Богиня некромантов. Харсараш — её последователь. Противостоит культу Владыки Небесных Сфер.</div>
+      <div class="card-tags"><span class="tag tag-purple">Смерть</span><span class="tag tag-red">Некромантия</span></div>
+    </div>
+    <div class="card" onclick="openDetail('Скамкель — Бог Войны','Бог войны','Иван Корытов помешал инквизитору Лаэру предотвратить освобождение Скамкеля — это было одним из первых поступков будущего члена Тёмной Партии. Статус: был ли в итоге освобождён — неизвестно.','Война · Освобождение · Иван Корытов · Лаэр')">
+      <div class="char-avatar">⚔️</div>
+      <div class="card-title">Скамкель</div>
+      <div class="card-sub">Бог Войны</div>
+      <div class="card-desc">Освобождение Скамкеля — ранний эпизод кампании. Инквизитор Лаэр пытался его предотвратить.</div>
+      <div class="card-tags"><span class="tag tag-red">Война</span><span class="tag tag-gold">Запретный</span></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section-title">Священные документы в архиве</div>
+  <table class="lore-table">
+    <thead><tr><th>Файл</th><th>Содержание</th></tr></thead>
+    <tbody>
+      <tr><td>Религии.docx</td><td>Общий обзор религий мира (12 КБ)</td></tr>
+      <tr><td>Первосвященники.docx</td><td>Иерархия культа Владыки (13 КБ)</td></tr>
+      <tr><td>Святые.docx</td><td>Список святых Оберона</td></tr>
+      <tr><td>Владыка Небесных Сфер.docx</td><td>Подробное описание верховного бога</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ CULTURES ═══════════════ -->
+<div class="page" id="page-cultures">
+  <div class="page-header">
+    <h1>Культуры и народы</h1>
+    <p>Народы, культурные группы и уникальные традиции мира Оберон.</p>
+  </div>
+  <div class="section-title">Девы Щита — детальный разбор</div>
+  <div class="two-col">
+    <div class="info-block">
+      <h3>🛡️ Кодекс и традиции</h3>
+      <div class="info-row"><span>Замужество</span><span>Только если жених победит в бою</span></div>
+      <div class="info-row"><span>После поражения</span><span>Замужество или смерть на мече</span></div>
+      <div class="info-row"><span>Девственность</span><span>Хранят до брака</span></div>
+      <div class="info-row"><span>Развод</span><span>Поединок раз в год</span></div>
+      <div class="info-row"><span>Внебрачные дети</span><span>В Залы к пожилым Девам</span></div>
+      <div class="info-row"><span>Управление</span><span>Дия (вождь)</div></div>
+      <div class="info-row"><span>Выбор пути</span><span>В 10–12 лет: меч или прялка</span></div>
+    </div>
+    <div class="info-block">
+      <h3>⚔️ Боевые традиции</h3>
+      <div class="info-row"><span>Оружие</span><span>Башенные щиты, мечи, топоры, дротики</span></div>
+      <div class="info-row"><span>Тактика</span><span>«Стена щитов» — малоподвижный строй</span></div>
+      <div class="info-row"><span>Ранние</span><span>Огнестрелы, топоры, большие щиты</span></div>
+      <div class="info-row"><span>Селунды</span><span>Берсеркеры на зельях, до 40 лет</span></div>
+      <div class="info-row"><span>Голая грудь</span><span>Знак женственности и готовности к бою</span></div>
+      <div class="info-row"><span>Ренегатки</span><span>Уничтожаются немедленно</span></div>
+    </div>
+  </div>
+  <div class="lore-quote">
+    «Тактика: "Мы кааааак встанем, и хрен сдвинешь!" — малоподвижное подразделение, использующее стену щитов и метателей позади строя.»
+    <cite>— Документация о Щитоносицах</cite>
+  </div>
+  <div class="section-title">Селунды — элита Дев Щита</div>
+  <div class="info-block" style="margin-bottom:24px">
+    <h3>🔥 Характеристики Селунд</h3>
+    <div class="info-row"><span>Отличие</span><span>Неистовые, нечувствительны к боли</span></div>
+    <div class="info-row"><span>Одежда</span><span>Из захваченных знамён и трофейных плащей</span></div>
+    <div class="info-row"><span>Особенности</span><span>Выжженные кислотой волосы, шрамы и ожоги</span></div>
+    <div class="info-row"><span>Оружие</span><span>Двуручные мечи, топоры</span></div>
+    <div class="info-row"><span>Вещества</span><span>Боевые грибы и эликсиры</span></div>
+    <div class="info-row"><span>Жизнь</span><span>К 40 годам неспособны сражаться</span></div>
+    <div class="info-row"><span>Статус</span><span>Не впускают в города и многие деревни</span></div>
+    <div class="info-row"><span>Цель жизни</span><span>Доказать воинское превосходство</span></div>
+  </div>
+  <div class="section-title">Другие народы</div>
+  <table class="lore-table">
+    <thead><tr><th>Народ/Группа</th><th>Характеристика</th><th>Документация</th></tr></thead>
+    <tbody>
+      <tr><td>Дьярцы</td><td>Народ с подробной историей. Файл «История дьярцев» (47 КБ)</td><td>🟢 Подробно</td></tr>
+      <tr><td>Лакстемцы</td><td>Народ Лакстемского королевства. Подробная история государства.</td><td>🟢 Подробно</td></tr>
+      <tr><td>Варвары Пустоши</td><td>Набегают на Порубежье. Орды Родегаса.</td><td>🟡 Частично</td></tr>
+      <tr><td>Фейри</td><td>Война с фейри в Эпоху II. Территория — Анарейм (Север).</td><td>🟡 Частично</td></tr>
+      <tr><td>Некритто</td><td>Раса/вид, к которому принадлежит Гёрд. Служки некромантов.</td><td>🔴 Минимально</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ DARK PARTY ═══════════════ -->
+<div class="page" id="page-dark_party">
+  <div class="page-header">
+    <h1>Тёмная Партия</h1>
+    <p>Центральная сюжетная фракция кампании. Хроника всех ключевых событий.</p>
+  </div>
+  <div class="lore-quote">
+    «Цикл статей, посвящённый Канону — Главной сюжетной линии нашей игры.»
+    <cite>— Вводная документация</cite>
+  </div>
+  <div class="two-col">
+    <div class="info-block">
+      <h3>📋 Статус Партии</h3>
+      <div class="info-row"><span>Лидер</span><span>Харсараш (Варлок, 6й Круг)</span></div>
+      <div class="info-row"><span>Текущее место</span><span>Север (Анарейм)</span></div>
+      <div class="info-row"><span>Главная цель</span><span>Уничтожить 5 Обелисков</span></div>
+      <div class="info-row"><span>Уничтожено</span><span>2 Обелиска (из 5)</span></div>
+      <div class="info-row"><span>Метод финала</span><span>Обрушить теневую луну</span></div>
+      <div class="info-row"><span>Ритуал вступления</span><span>Вкушение человеческого мяса</span></div>
+    </div>
+    <div class="info-block">
+      <h3>👥 Состав Партии</h3>
+      <div class="info-row"><span>Харсараш</span><span>Варлок / лидер</span></div>
+      <div class="info-row"><span>Гёрд</span><span>Некритто-служка</span></div>
+      <div class="info-row"><span>Иван Корытов</span><span>Воин</span></div>
+      <div class="info-row"><span>Равварта</span><span>Освобождена из тюрьмы</span></div>
+      <div class="info-row"><span>Дарьяна</span><span>Душа в доспехе</span></div>
+      <div class="info-row"><span>Вампир-священник</span><span>Помог с побегом</span></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section-title">Хроника ключевых событий</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot green"></div>
+      <div class="tl-year">НАЧАЛО</div>
+      <div class="tl-title">Баронство Пятиречье — Рождение Партии</div>
+      <div class="tl-desc">Харсараш прибывает с Гёрдом. Конфликт в церкви — убийство священника. Инцидент в свинарнике. Присоединение Ивана Корытова. Ритуал Посвящения. Осада деревни. Спуск в корабль Древних. Первый модифицированный зомби-боров с вилами.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">ПУТЬ В СВЯТОЙ ГРАД</div>
+      <div class="tl-title">Спасение ведьмы. Гибель Дарьяны</div>
+      <div class="tl-desc">Партия перебивает крестьян, пытавшихся утопить ведьму. Спасается только солтыс. Городок Карбург: обворован городничий, погибает Дарьяна. Харсараш вселяет её душу в свой доспех — становление Варлока.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot red"></div>
+      <div class="tl-year">ПРЕДМЕСТЬЯ СВЯТОГО ГРАДА</div>
+      <div class="tl-title">Поражение от Амона Ри. Первый Обелиск</div>
+      <div class="tl-desc">Первое столкновение с отрядом Амона Ри — Партия захвачена. Заточение у Обелиска. Разгадка тайны — 1-й Обелиск уничтожен. Харсараш получает повышение в Гильдии: становится Варлоком-магом.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">ОСТРОВА</div>
+      <div class="tl-title">Штурм островного Обелиска — 2-й уничтожен</div>
+      <div class="tl-desc">Опаснейшая операция. Потоплен корабль Ордена инквизиции. Партия возвращается в таверну «Три Монаха». Амон Ри обкладывает таверну и поджигает её. Чудом уцелев, Харсараш освобождает Равварту и Ивана из тюрьмы Инквизиции. Вампир-священник помогает с побегом.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">МОРСКОЙ ПЕРЕХОД</div>
+      <div class="tl-title">Каравелла. Рыцари Смерти. Акула</div>
+      <div class="tl-desc">Нанят корабль. Принято «решение, далёкое от здравого смысла» — вся команда повязана Рыцарями Смерти. Капитан убит. Вампир прибит к гробу гвоздями. К каравелле прикреплена огромная акула для скорости.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot gold"></div>
+      <div class="tl-year">СЕВЕР — ТЕКУЩИЕ СОБЫТИЯ</div>
+      <div class="tl-title">Анарейм. Деревня. «Мёдорождённый»</div>
+      <div class="tl-desc">Прибытие на Север. Потеря Рыцарей Смерти. Странные события в деревне: «Мёдорождённый», Иван Корытов едва не сожжён. Харсараш обращает деревню в веру Владычицы Смерти через воскрешение мёртвых. Появление женщины-андроида. «Охота на эльфа» в Анарейме.</div>
+    </div>
+  </div>
+  <div class="alert-box alert-note">
+    <div class="alert-icon">📝</div>
+    <div><div class="alert-title">Конфликт версий истории</div>Существуют две версии событий в баронстве Пятиречье: основная (Харсараш — «лох унылый») и исправленная («ИСТОРИКИ ВРУТ!» — написано Мейстером и Лингором). Требуется каноническое решение автора.</div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONFLICTS ═══════════════ -->
+<div class="page" id="page-conflicts">
+  <div class="page-header">
+    <h1>Конфликты ЛОРа</h1>
+    <p>Зафиксированные противоречия, белые пятна и вопросы, требующие авторского решения.</p>
+  </div>
+  <div class="section-title">🔴 Критические противоречия</div>
+  <div class="alert-box alert-conflict">
+    <div class="alert-icon">⚔️</div>
+    <div>
+      <div class="alert-title">КОНФЛИКТ ЛОРа: Две версии начала Тёмной Партии</div>
+      Файл «Тёмная Партия.txt» содержит основную версию событий В ПЯТИРЕЧЬЕ и её прямое опровержение от авторов («КАК БЫЛО НА САМОМ ДЕЛЕ»). Ключевые расхождения: роль Харсараша, личность Гёрда (девушка vs. нейтральный слуга), обстоятельства инцидента в свинарнике. <strong>Требуется: решение автора — какая версия канонична?</strong>
+    </div>
+  </div>
+  <div class="alert-box alert-conflict">
+    <div class="alert-icon">🌙</div>
+    <div>
+      <div class="alert-title">БЕЛОЕ ПЯТНО: «Теневая луна» — что это?</div>
+      В хрониках упоминается план «обрушить теневую луну» на планету. Нигде в документации не описано: что такое теневая луна, где она находится, как её обрушить и каковы последствия для планеты. <strong>Требуется: создать документ с описанием теневой луны.</strong>
+    </div>
+  </div>
+  <div class="alert-box alert-conflict">
+    <div class="alert-icon">🧬</div>
+    <div>
+      <div class="alert-title">БЕЛОЕ ПЯТНО: Природа некритто</div>
+      Гёрд описан как «некритто» — но нигде в ЛОРе нет описания этой расы/вида. Это люди? Нелюди? Магические существа? <strong>Требуется: документ о некритто.</strong>
+    </div>
+  </div>
+  <div class="section-title">🟡 Важные вопросы без ответа</div>
+  <div class="alert-box alert-note">
+    <div class="alert-icon">❓</div>
+    <div>
+      <div class="alert-title">Статус Скамкеля после вмешательства Ивана Корытова</div>
+      Иван помешал Лаэру предотвратить освобождение бога Войны Скамкеля. Был ли Скамкель в итоге освобождён? Каковы последствия? Отсутствует в дальнейших событиях.
+    </div>
+  </div>
+  <div class="alert-box alert-note">
+    <div class="alert-icon">❓</div>
+    <div>
+      <div class="alert-title">Равварта — кто она?</div>
+      Упомянута как освобождённая из тюрьмы Инквизиции, но биографического файла нет. Роль в Тёмной Партии не установлена.
+    </div>
+  </div>
+  <div class="alert-box alert-note">
+    <div class="alert-icon">❓</div>
+    <div>
+      <div class="alert-title">«Женщина-андроид» на Севере</div>
+      В хрониках Севера появляется «некая женщина-андроид». Что это за существо в мире фэнтези? Технология Древних? Магический конструкт?
+    </div>
+  </div>
+  <div class="alert-box alert-note">
+    <div class="alert-icon">❓</div>
+    <div>
+      <div class="alert-title">«Мёдорождённый» — персонаж без досье</div>
+      Упомянут в событиях северной деревни. Никакой документации нет. Имя звучит значимо — возможно, важный персонаж.
+    </div>
+  </div>
+  <div class="section-title">🟢 Хорошо задокументировано</div>
+  <div class="alert-box alert-ok">
+    <div class="alert-icon">✅</div>
+    <div>Хроники Тёмной Партии (III Эпоха) — подробная последовательность событий кампании, несмотря на конфликт версий начала.</div>
+  </div>
+  <div class="alert-box alert-ok">
+    <div class="alert-icon">✅</div>
+    <div>Кодекс Дев Щита — один из наиболее полных культурных документов ЛОРа. Традиции, Селунды, обычаи — всё детально описано.</div>
+  </div>
+  <div class="alert-box alert-ok">
+    <div class="alert-icon">✅</div>
+    <div>Механика Обелисков — назначение (источник силы Владыки), расположение (5 вокруг Святого Града), способ уничтожения зафиксированы.</div>
+  </div>
+</div>
+
+</main>
+
+<!-- DETAIL PANEL -->
+<div class="detail-overlay" id="detail-overlay" onclick="closeDetail()"></div>
+<div class="detail-panel" id="detail-panel">
+  <button class="detail-close" onclick="closeDetail()">✕</button>
+  <div class="detail-title" id="dp-title"></div>
+  <div class="detail-role" id="dp-role"></div>
+  <div class="detail-section">
+    <h4>Биография / Описание</h4>
+    <p id="dp-desc"></p>
+  </div>
+  <div class="detail-section">
+    <h4>Теги / Связи</h4>
+    <p id="dp-tags" style="color:var(--accent2);font-size:13px;line-height:1.8"></p>
+  </div>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) page.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + id + "'")) n.classList.add('active');
+  });
+  if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo(0,0);
+}
+
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+function openDetail(title, role, desc, tags) {
+  document.getElementById('dp-title').textContent = title;
+  document.getElementById('dp-role').textContent = role;
+  document.getElementById('dp-desc').textContent = desc;
+  document.getElementById('dp-tags').textContent = tags;
+  document.getElementById('detail-panel').classList.add('open');
+  document.getElementById('detail-overlay').classList.add('open');
+}
+
+function closeDetail() {
+  document.getElementById('detail-panel').classList.remove('open');
+  document.getElementById('detail-overlay').classList.remove('open');
+}
+
+function filterChars() {
+  const q = document.getElementById('char-search').value.toLowerCase();
+  document.querySelectorAll('#page-chars .card').forEach(c => {
+    const name = (c.dataset.name || '').toLowerCase();
+    const text = c.textContent.toLowerCase();
+    c.style.display = (name.includes(q) || text.includes(q)) ? '' : 'none';
+  });
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+</script>
+</body>
+</html>
